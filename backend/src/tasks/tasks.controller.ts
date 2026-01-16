@@ -1,14 +1,11 @@
-import { Controller } from '@nestjs/common';
-import { Get } from '@nestjs/common';
-import { Post } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 
 @Controller('tasks')
 export class TasksController {
-    @Post()
-    
-    @Get()
-    getHello(): string{
-        return 'legal cara'
-    }
-
+  @Get()
+  TesteVariaveis(): string {
+    const a = 10;
+    const b = 20;
+    return `Variavel: ${a} <br>Soma - ${a + b}<br>`
+  }
 }
