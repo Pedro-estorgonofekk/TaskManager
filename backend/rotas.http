@@ -1,0 +1,19 @@
+GET http://localhost:3000
+
+###
+GET http://localhost:3000/status
+
+###
+GET http://localhost:3000/tasks
+
+###
+POST http://localhost:3000/tasks
+
+###
+PATCH http://localhost:3000/tasks
+
+###
+PUT http://localhost:3000/tasks
+
+###
+DELETE http://localhost:3000/tasks

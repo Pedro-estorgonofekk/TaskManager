@@ -1,11 +1,32 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Put, Patch, Delete } from '@nestjs/common';
+import { TasksService } from './tasks.service'
 
 @Controller('tasks')
 export class TasksController {
+  constructor(private readonly appService: TasksService) {}
+
   @Get()
-  TesteVariaveis(): string {
-    const a = 10;
-    const b = 20;
-    return `Variavel: ${a} <br>Soma - ${a + b}<br>`
+  GetTask(): string {
+    return "Buscar Tasks"
+  }
+  
+  @Post()
+  CreateTask(): string{  
+    return "Criar Tasks"
+  }  
+
+  @Put()
+  UpdateTask(): string{
+    return "Atualizar Tasks"
+  }
+
+  @Patch()
+  CompleteTask(): string{
+    return "Completar Tasks"
+  }
+
+  @Delete()
+  DeleteTask(): string{
+    return "Deletar Tasks"
   }
 }
