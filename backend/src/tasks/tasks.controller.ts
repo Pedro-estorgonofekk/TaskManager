@@ -8,7 +8,7 @@ export class TasksController {
 
   @Get()
   GetTask(): string {
-    return "Buscar Tasks"
+    return this.tasksService.GetTasks()
   }
   
   @Post()

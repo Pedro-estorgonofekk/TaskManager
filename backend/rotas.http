@@ -1,9 +1,6 @@
 GET http://localhost:3000
 
 ###
-GET http://localhost:3000/status
-
-###
 GET http://localhost:3000/tasks
 
 ###
