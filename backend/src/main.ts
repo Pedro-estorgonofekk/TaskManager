@@ -1,3 +1,5 @@
+//só vai ligar o server, olha ali a porta 3k
+
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
