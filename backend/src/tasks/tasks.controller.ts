@@ -7,13 +7,13 @@ export class TasksController {
   constructor(private readonly tasksService: TasksService) {}
 
   @Get()
-  GetTask(): string {
+  GetTask(){
     return this.tasksService.GetTasks()
   }
   
   @Post()
   CreateTask(): string{  
-    return "Criar Tasks"
+    return this.tasksService.CreateTask()
   }  
 
   @Put(':id')
