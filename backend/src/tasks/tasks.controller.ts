@@ -1,5 +1,5 @@
 //Aqui pae, é só as rotas e delegar o resto
-import { Controller, Get, Post, Put, Patch, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Put, Patch, Delete, Body } from '@nestjs/common';
 import { TasksService } from './tasks.service'
 
 @Controller('tasks')
@@ -12,8 +12,10 @@ export class TasksController {
   }
   
   @Post()
-  CreateTask(): string{  
-    return this.tasksService.CreateTask()
+  CreateTask(
+    @Body() body: { title: string; description: string; date: string; completed: boolean }
+  ){  
+    return this.tasksService.CreateTask(body)
   }  
 
   @Put(':id')

@@ -27,18 +27,18 @@ export class TasksService {
             completed: true,
         }
     ]
+    private nextId = Math.max(0, ...this.tasks.map(t => t.id)) + 1
 
     GetTasks(): Task[] {
         return this.tasks
     }
-    CreateTask(): any {
-        this.tasks.push({
-            id: 3,
-            title: 'Louça',
-            description: 'lavar a louça do chá',
-            date: '2026/12/28',
-            completed: false
-        })
-        return this.tasks[2]
+    CreateTask(data: Omit<Task, 'id'>): Task {
+        const newTask: Task = {
+            id: this.nextId++,
+            ...data,
+        };
+
+        this.tasks.push(newTask)
+        return newTask
     }
 }
