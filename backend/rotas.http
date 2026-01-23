@@ -1,27 +1,31 @@
-GET http://localhost:3000
-
-###
 GET http://localhost:3000/tasks
 
 ###
-POST http://localhost:3000/tasks HTTP/1.1
+POST http://localhost:3000/tasks
 content-type: application/json
 
 {
-
-  "title": "Estudar NestJS",
-  "description": "Continuar o projeto de tarefas",
-  "date": "2026-01-19",
+  "title": "Louça",
+  "description": "Lavar a louça do chá",
+  "date": "2026-01-20",
   "completed": false
-
 }
 
 
 ###
-PATCH http://localhost:3000/tasks
+PUT  http://localhost:3000/tasks/3
+content-type: application/json
+
+{
+  "title": "Lavar louça ",
+  "description": "Lavar louça do chá de ontem",
+  "date": "2026-01-20",
+  "completed": false
+}
+
 
 ###
-PUT http://localhost:3000/tasks
+PATCH http://localhost:3000/tasks/3
 
 ###
 DELETE http://localhost:3000/tasks
