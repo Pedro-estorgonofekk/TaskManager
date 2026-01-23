@@ -12,9 +12,7 @@ export class TasksController {
   }
   
   @Post()
-  CreateTask(
-    @Body() body: { title: string; description: string; date: string; completed: boolean }
-  ){  
+  CreateTask(@Body() body: { title: string; description: string; date: string; completed: boolean }){  
     return this.tasksService.CreateTask(body)
   }  
 
@@ -24,17 +22,17 @@ export class TasksController {
   }
 
   @Patch(':id/complete')
-  CompleteTask(): string{
-    return "Completar Tasks"
+  CompleteTask(@Param('id', ParseIntPipe) id: number){
+    return this.tasksService.CompleteTask(id)
   }
 
   @Patch(':id/incomplete')
-  IncompleteTask(): string{
-    return "Completar(soq ao contrario) Tasks"
+  IncompleteTask(@Param('id', ParseIntPipe) id: number){
+    return this.tasksService.IncompleteTask(id)
   }
 
   @Delete(':id')
-  DeleteTask(): string{
-    return "Deletar Tasks"
+  DeleteTask(@Param('id', ParseIntPipe) id: number){
+    return this.tasksService.DeleteTask(id)
   }
 }

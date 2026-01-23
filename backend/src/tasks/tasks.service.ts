@@ -48,14 +48,43 @@ export class TasksService {
     }
 
     UpdateTask(id: number, data) {
-        for (const [index, object] of this.tasks.entries()) {
-            if (object.id == id) {
+        for (const [index, task] of this.tasks.entries()) {
+            if (task.id == id) {
                 const updatedTask = {
-                    id: object.id,
+                    id: task.id,
                     ...data
                 }
                 this.tasks.splice(index, 1, updatedTask)
                 return updatedTask
+            }
+        }
+        return "Tarefa não encontrada"
+    }
+
+    CompleteTask(id: number){
+        for (const task of this.tasks) {
+            if (task.id == id) {
+                task.completed = true
+                return task
+            }
+        }
+        return "Tarefa não encontrada"
+
+    }
+
+    IncompleteTask(id: number){
+        for (const task of this.tasks) {
+            if (task.id == id) {
+                task.completed = false
+                return task
+            }
+        }
+        return "Tarefa não encontrada"
+    }
+    DeleteTask(id: number){
+        for (const [index, task] of this.tasks.entries()){
+            if (task.id == id){
+                this.tasks.splice(index, 1)
             }
         }
         return "Tarefa não encontrada"
