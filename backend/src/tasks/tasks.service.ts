@@ -1,6 +1,5 @@
 //aqui é a logica por tras dos metodos, olha ali o metodo get task
 import { Injectable } from '@nestjs/common';
-import { response } from 'express';
 
 type Task = {
     id: number,
@@ -85,6 +84,7 @@ export class TasksService {
         for (const [index, task] of this.tasks.entries()){
             if (task.id == id){
                 this.tasks.splice(index, 1)
+                return `Tarefa ${id} deletada`
             }
         }
         return "Tarefa não encontrada"

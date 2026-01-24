@@ -1,5 +1,5 @@
 //Aqui pae, é só as rotas e delegar o resto
-import { Controller, Get, Post, Put, Patch, Delete, Body, Param,ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Put, Patch, Delete, Body, Param, ParseIntPipe } from '@nestjs/common';
 import { TasksService } from './tasks.service'
 
 @Controller('tasks')
