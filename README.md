@@ -160,7 +160,7 @@ A aplicação deve ser dividida em:
 - Para rodar o docker:
   - Rode o comando
   ```bash
-  docker exec
+  docker compose up -d
   ```
 
 ### Convenção de Mensagens de Commit
