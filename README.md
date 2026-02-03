@@ -144,12 +144,21 @@ A aplicação deve ser dividida em:
 
 ### Como rodar
 - Instalar o node
-  - Acesse o site https://[nodejs.org](https://nodejs.org/pt-br/download)
+  - Acesse o site https://(https://nodejs.org/pt-br/download)
   
 - Acessar o diretorio 'backend'
   ```bash
   cd backend
   ```
+- Para rodar o backend:
+  - Rode o comando:
+    ```bash
+    npm run start
+    ```
+  - Ou para rodar modo de desenvolvimento
+    ```bash
+    npm run start:dev
+    ```
 
 - Para rodar o prisma:
   - Rode o comando:
