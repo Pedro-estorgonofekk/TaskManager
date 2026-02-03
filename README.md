@@ -142,7 +142,26 @@ A aplicação deve ser dividida em:
   - Clique no botão "Fork" no canto superior direito
   - Selecione sua conta pessoal/organização como destino
 
+### Como rodar
+- Instalar o node
+  - Acesse o site https://[nodejs.org](https://nodejs.org/pt-br/download)
+  
+- Acessar o diretorio 'backend'
+  ```bash
+  cd backend
+  ```
 
+- Para rodar o prisma:
+  - Rode o comando:
+  ```bash
+  npx prisma studio
+  ```
+
+- Para rodar o docker:
+  - Rode o comando
+  ```bash
+  docker exec
+  ```
 
 ### Convenção de Mensagens de Commit
 
