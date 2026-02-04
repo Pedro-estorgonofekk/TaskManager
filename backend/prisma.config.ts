@@ -2,7 +2,7 @@
 // npm install --save-dev prisma dotenv
 // Ja foi instalado pae, obg por avisar
 import "dotenv/config";
-import { defineConfig } from "prisma/config";
+import { defineConfig, env } from "prisma/config";
 
 export default defineConfig({
   schema: "prisma/schema.prisma",
@@ -10,6 +10,6 @@ export default defineConfig({
     path: "prisma/migrations",
   },
   datasource: {
-    url: "./env(DATABASE_URL)",
+    url: env("DATABASE_URL"),
   },
 });
