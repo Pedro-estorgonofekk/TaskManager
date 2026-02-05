@@ -84,7 +84,6 @@ export class TasksService {
         for (const [index, task] of this.tasks.entries()){
             if (task.id == id){
                 this.tasks.splice(index, 1)
-                return `Tarefa ${id} deletada`
             }
         }
         return "Tarefa não encontrada"
