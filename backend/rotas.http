@@ -5,10 +5,8 @@ POST http://localhost:3000/tasks
 content-type: application/json
 
 {
-  "title": "Louça",
-  "description": "Lavar a louça do chá",
-  "date": "2026-01-20",
-  "completed": false
+  "title": "Criando Tarefa",
+  "description": "Quero criar a tarefa"
 }
 
 
@@ -18,9 +16,7 @@ content-type: application/json
 
 {
   "title": "Lavar louça",
-  "description": "Lavar louça do chá de ontem",
-  "date": "2026-01-20",
-  "completed": false
+  "description": "Lavar louça do chá de ontem"
 }
 
 

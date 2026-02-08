@@ -1,6 +1,8 @@
 //Aqui pae, é só as rotas e delegar o resto
-import { Controller, Get, Post, Put, Patch, Delete, Body, Param,ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Put, Patch, Delete, Body, Param, ParseIntPipe, ValidationPipe } from '@nestjs/common'
 import { TasksService } from './tasks.service'
+import { CreateTaskDto } from './dto/create-task.dto'
+import { UpdateTaskDto } from './dto/update-task.dto'
 
 @Controller('tasks')
 export class TasksController {
@@ -12,13 +14,13 @@ export class TasksController {
   }
   
   @Post()
-  CreateTask(@Body() body: { title: string; description: string; date: string; completed: boolean }){  
-    return this.tasksService.CreateTask(body)
+  CreateTask(@Body(ValidationPipe) createTaskDto: CreateTaskDto){  
+    return this.tasksService.CreateTask(createTaskDto)
   }  
 
   @Put(':id')
-  UpdateTask(@Param('id', ParseIntPipe) id: number, @Body() body: { title: string; description: string; date: string; completed: boolean }){
-    return this.tasksService.UpdateTask(id, body)
+  UpdateTask(@Param('id', ParseIntPipe) id: number, @Body(ValidationPipe) updateTaskDto: UpdateTaskDto){
+    return this.tasksService.UpdateTask(id, updateTaskDto)
   }
 
   @Patch(':id/complete')

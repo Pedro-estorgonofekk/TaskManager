@@ -162,16 +162,24 @@ A aplicação deve ser dividida em:
 
 - Para rodar o prisma:
   - Rode o comando:
-  ```bash
-  npx prisma studio
-  ```
+    ```bash
+    npx prisma studio
+    ```
 
 - Para rodar o docker:
-  - Rode o comando
-  ```bash
-  docker compose up -d
-  ```
-
+  - Rode o comando:
+    ```bash
+    docker compose up -d
+    ```
+  - Caso ja tenha executado o comando acima, para iniciar:
+    ```bash
+    docker compose start
+    ```
+- Para parar o docker corretamente:
+  - Rode o comando:
+    ```bash
+    docker compose stop
+    ```
 ### Convenção de Mensagens de Commit
 
 Utilizamos [Conventional Commits](https://www.conventionalcommits.org/) com os seguintes tipos:

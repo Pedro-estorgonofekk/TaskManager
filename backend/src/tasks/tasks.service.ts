@@ -1,91 +1,54 @@
 //aqui é a logica por tras dos metodos, olha ali o metodo get task
-import { Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'src/prisma/prisma.service'
+import { CreateTaskDto } from './dto/create-task.dto'
+import { UpdateTaskDto } from './dto/update-task.dto'
 
-type Task = {
-    id: number,
-    title: string,
-    description: string,
-    date: string,
-    completed: boolean
-}
 
 @Injectable()
 export class TasksService {
-    private tasks: Task[] = [
-        {
-            id: 1,
-            title: 'Fazer chá',
-            description: 'Pegar o hortelã e fazer o chá noturno',
-            date: '2026-01-19',
-            completed: false,
-        },
-        {
-            id: 2,
-            title: 'Colher a hortelã',
-            description: 'Ir ao jardim e colher a hortelã durante a tarde',
-            date: '2026-01-19',
-            completed: true,
-        }
-    ]
-    private nextId = Math.max(0, ...this.tasks.map(t => t.id)) + 1
+    constructor(private prisma: PrismaService){}
 
-    //Obtenção de todas as tarefas criadas
-    GetTasks(): Task[] {
-        return this.tasks
+    async GetTasks(){
+        return await this.prisma.task.findMany({orderBy: 
+            [
+                {completed:'asc'}, {createdAt:'asc'}
+            ]
+        })
     }
 
-    //Criação de novas tarefas, Omit é mt legal pra esse tipo de situação
-    CreateTask(data: Omit<Task, 'id'>): Task {
-        const newTask: Task = {
-            id: this.nextId++,
-            ...data,
-        };
-
-        this.tasks.push(newTask)
-        return newTask
-
+    async CreateTask(createTaskDto: CreateTaskDto){
+        return await this.prisma.task.create({data: createTaskDto})
     }
 
-    UpdateTask(id: number, data) {
-        for (const [index, task] of this.tasks.entries()) {
-            if (task.id == id) {
-                const updatedTask = {
-                    id: task.id,
-                    ...data
-                }
-                this.tasks.splice(index, 1, updatedTask)
-                return updatedTask
-            }
-        }
-        return "Tarefa não encontrada"
+    async UpdateTask(id: number, updateTaskDto: UpdateTaskDto){
+        return await this.prisma.task.update({
+            where: {id},
+            data: updateTaskDto
+        })
     }
-
-    CompleteTask(id: number){
-        for (const task of this.tasks) {
-            if (task.id == id) {
-                task.completed = true
-                return task
-            }
-        }
-        return "Tarefa não encontrada"
-
+ 
+    async CompleteTask(id: number){
+        return await this.prisma.task.update({
+            where: {id},
+            data: {
+                completed: true,
+            },
+        })
     }
-
-    IncompleteTask(id: number){
-        for (const task of this.tasks) {
-            if (task.id == id) {
-                task.completed = false
-                return task
-            }
-        }
-        return "Tarefa não encontrada"
+ 
+    async IncompleteTask(id: number){
+        return await this.prisma.task.update({
+            where: {id},
+            data: {
+                completed: false,
+            },
+        })
     }
-    DeleteTask(id: number){
-        for (const [index, task] of this.tasks.entries()){
-            if (task.id == id){
-                this.tasks.splice(index, 1)
-            }
-        }
-        return "Tarefa não encontrada"
+ 
+    async DeleteTask(id: number){
+        return await this.prisma.task.delete({
+            where: {id},
+        })
     }
 }
