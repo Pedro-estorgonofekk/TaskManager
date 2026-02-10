@@ -5,8 +5,8 @@ POST http://localhost:3000/tasks
 content-type: application/json
 
 {
-  "title": "Criando Tarefa",
-  "description": "Quero criar a tarefa"
+  "title": "Fazer chá",
+  "description": "Colher hortelã e fazer chá"
 }
 
 
@@ -21,7 +21,7 @@ content-type: application/json
 
 
 ###
-PATCH http://localhost:3000/tasks/3/complete
+PATCH http://localhost:3000/tasks/193/complete
 
 
 ###

@@ -1,4 +1,4 @@
-//Aqui pae, é só as rotas e delegar o resto
+//Aqui pae, é só as rotas e o resto é pros outros
 import { Controller, Get, Post, Put, Patch, Delete, Body, Param, ParseIntPipe, ValidationPipe } from '@nestjs/common'
 import { TasksService } from './tasks.service'
 import { CreateTaskDto } from './dto/create-task.dto'
