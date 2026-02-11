@@ -115,7 +115,7 @@ backend/
   ```
 - Se ocorrer erro relacionado ao Prisma Client (ex.: `@prisma/client` ou `PrismaClient`), reinstale e gere novamente:
     ```bash
-      npm i @prisma/client
-      npm i -D prisma
-      npx prisma generate
+    npm i @prisma/client
+    npm i -D prisma
+    npx prisma generate
     ```
