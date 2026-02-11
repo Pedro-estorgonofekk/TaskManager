@@ -63,12 +63,6 @@ backend/
           ```bash
           npx prisma migrate dev
           ```
-          - Se ocorrer erro relacionado ao Prisma Client (ex.: `@prisma/client` ou `PrismaClient`), reinstale e gere novamente:
-            ```bash
-            npm i @prisma/client
-            npm i -D prisma
-            npx prisma generate
-            ```
   - Rode o comando:
     ```bash
     npm run start
@@ -116,6 +110,12 @@ backend/
     O `npm` pode mostrar vulnerabilidades moderadas em dependências indiretas. Isso não impede rodar o projeto.
 
 - Erro de `wsl` acontece no windows pois o docker utiliza do `wsl` para executar a maquina virtual sendo necessário executar:
+  ```bash
+  wsl --update
+  ```
+- Se ocorrer erro relacionado ao Prisma Client (ex.: `@prisma/client` ou `PrismaClient`), reinstale e gere novamente:
     ```bash
-    wsl --update
+      npm i @prisma/client
+      npm i -D prisma
+      npx prisma generate
     ```
