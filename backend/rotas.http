@@ -11,7 +11,7 @@ content-type: application/json
 
 
 ###
-PUT  http://localhost:3000/tasks/3
+PUT  http://localhost:3000/tasks/1
 content-type: application/json
 
 {
@@ -21,11 +21,11 @@ content-type: application/json
 
 
 ###
-PATCH http://localhost:3000/tasks/193/complete
+PATCH http://localhost:3000/tasks/1/complete
 
 
 ###
-PATCH http://localhost:3000/tasks/3/incomplete
+PATCH http://localhost:3000/tasks/1/incomplete
 
 ###
-DELETE http://localhost:3000/tasks/3
+DELETE http://localhost:3000/tasks/1

@@ -1,5 +1,9 @@
-export async function GetTasks() {
-    return "Buscar tarefas"
+export async function GetTasks(): Promise<Task[]> {
+    const response = await fetch("/api/tasks")
+    if (!response.ok){
+        throw new Error("Erro ao buscar dados")
+    } 
+    return await response.json()
 }
 
 export async function PostTask(/*data:CreateTaskDTO*/) {
