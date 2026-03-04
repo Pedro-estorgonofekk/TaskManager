@@ -2,6 +2,7 @@
 
 ## Estrutura de Pastas:
 
+Backend:
 ```
 backend/
  ├── src/
@@ -12,6 +13,25 @@ backend/
  ├── .env
  └── package.json
 ```
+
+Frontend:
+```
+frontend/
+├── src/
+│ ├── api/
+│ ├── components/
+│ ├── main.tsx
+│ └── App.tsx
+├── index.html
+└── package.json
+```
+Task Manager:
+```
+Task Manager/
+├── backend/
+└── frontend/
+```
+
 ## Executando o Backend:
   ### Requisitos
   - NodeJS
@@ -94,6 +114,19 @@ backend/
     ```bash
     ctrl+c
     ```
+## Executando o Frontend:
+- Caso esteje na raíz do projeto:
+  ```
+  cd frontend
+  ```
+- Instale as dependencias:
+  ```
+  npm install
+  ```
+- Rode o Vite:
+  ```
+  npm run dev
+  ```
 
 ## Possíveis Erros:
 - Erro ao executar `npm`, possivelmente sera necessario dar permissão para a execução de scripts:
