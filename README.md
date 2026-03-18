@@ -103,17 +103,6 @@ Task Manager/
 
 <br>
 
-## Parando o projeto:
-- Parar o docker:
-  - Rode o comando:
-    ```bash
-    docker compose stop
-    ```
-- Parar o `backend` e o Prisma Studio:
-  - No terminal
-    ```bash
-    ctrl+c
-    ```
 ## Executando o Frontend:
 - Caso esteje na raíz do projeto:
   ```
@@ -127,6 +116,18 @@ Task Manager/
   ```
   npm run dev
   ```
+
+## Parando o projeto:
+- Parar o docker:
+  - Rode o comando:
+    ```bash
+    docker compose stop
+    ```
+- Parar todas as instâncias:
+  - No terminal
+    ```bash
+    ctrl+c
+    ```
 
 ## Possíveis Erros:
 - Erro ao executar `npm`, possivelmente sera necessario dar permissão para a execução de scripts:
