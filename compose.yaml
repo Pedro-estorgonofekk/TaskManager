@@ -1,0 +1,25 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: taskmanager-backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    expose:
+      - "3000"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: taskmanager-frontend
+    restart: unless-stopped
+    ports:
+      - "${LAN_IP:?Configure LAN_IP no arquivo .env}:8080:80"
+    depends_on:
+      - backend

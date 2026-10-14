@@ -19,7 +19,7 @@ export async function PostTask(data: CreateTaskDTO): Promise<Task> {
   const response = await fetch("/api/tasks", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...data, completed: false }), // Backend espera completed false por padrão
+    body: JSON.stringify(data), // Backend espera completed false por padrão
   })
   return handleResponse(response)
 }
